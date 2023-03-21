@@ -6,5 +6,11 @@
  * Return: 1 or 0
  */
 int _putchar(char ch);
+/**
+ * print_alphabet - prints alphabet from a to z
+ * takes no parameter
+ * Return: void
+ */
+void print_alphabet(void);
 
 #endif
