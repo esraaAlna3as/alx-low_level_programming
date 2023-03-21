@@ -1,8 +1,10 @@
 #include "main.h"
 /**
  * print_alphabet_x10 - print alphabet from a to z 10 times
+ *
  * takes no parameters
- * Return: void
+ *
+ *Return: void
  */
 void print_alphabet_x10(void)
 {
