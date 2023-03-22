@@ -2,7 +2,7 @@
 #include "6-abs.c"
 /**
  * print_last_digit :print last digit of @n by se the modulo operator
- *
+ *using _abs : to handle negative values
  * @n: integer to get last digit of
  * Return: last digit of n
  *
