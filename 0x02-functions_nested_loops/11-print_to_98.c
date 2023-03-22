@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  *print_to_98 - prints all natural numbers from n to 98
- *The first printed number the number passed to your function
+ *@n :The first printed number the number passed to your function
  *The last printed number should be 98
  */
 
