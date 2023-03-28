@@ -6,6 +6,13 @@
  * @s :pointer to first element in array.
  * Return: length of string int value
  */
+int _strlen(char *s);
+/**
+ * print_rev-: prints the revers  of string
+ * @s :pointer to first element in array.
+ * Return: void
+ */
+
 
 void print_rev(char *s)
 {
