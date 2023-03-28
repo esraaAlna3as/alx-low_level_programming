@@ -22,5 +22,4 @@ void rev_string(char *s)
 		s[i] = s[y - 1 - i];
 		s[y - 1 - i] = ch;
 	}
-	printf("\n");
 }
