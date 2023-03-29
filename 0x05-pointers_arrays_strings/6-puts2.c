@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-#include "_puchar.c"
 /**
  * puts2 - prints a string
  * @str : char pointer
@@ -21,8 +20,8 @@ void puts2(char *str)
 	b = 0;
 	while (b < a)
 	{
-		_putchar(str[b]);
+		putchar(str[b]);
 		b += 2;
 	}
-	_putchar('\n');
+	putchar('\n');
 }
