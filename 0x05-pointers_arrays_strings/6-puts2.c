@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include "_puchar.c"
 /**
  * puts2 - prints a string
  * @str : char pointer
