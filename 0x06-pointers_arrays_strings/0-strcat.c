@@ -10,13 +10,14 @@
 
 char *_strcat(char *dest, char *src)
 {
-	 // Find the end of the dest string
+	int i = 0 , j = 0 ;
+	
 	while (dest[i] != '\0')
 	{
 		i++;
 	}
-    // Concatenate the src string to dest
-	while (src[j] != '\0') {
+	while (src[j] != '\0')
+	{
 		dest[i] = src[j];
 		i++;
 		j++;
@@ -24,4 +25,3 @@ char *_strcat(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
