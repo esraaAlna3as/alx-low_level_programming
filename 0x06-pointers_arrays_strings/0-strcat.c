@@ -10,19 +10,18 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int i = 0, j = 0;
-
-	do {
-	if (dest[i + 1] == ' ')
+	 // Find the end of the dest string
+	while (dest[i] != '\0')
 	{
-	do {
-	dest[i + 1] = src[j];
-	j++;
-	i++;
-	} while (src[j] != '\0');
+		i++;
 	}
-	i++;
-	} while (dest[i] != '\0');
+    // Concatenate the src string to dest
+	while (src[j] != '\0') {
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
 	return (dest);
 }
 
