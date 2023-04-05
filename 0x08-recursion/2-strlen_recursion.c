@@ -2,7 +2,7 @@
 /**
  * _strlen_recursion- :function that return length string
  * @s: string to find it's length
- * Returns: 1 + prevouse string
+ * Return: 1 + prevouse string
  */
 int _strlen_recursion(char *s)
 {
