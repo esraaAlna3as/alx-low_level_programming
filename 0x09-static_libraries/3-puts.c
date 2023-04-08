@@ -12,9 +12,9 @@ void _puts(char *s)
 
 	int i = 0;
 
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-	printf("%c", str[i]);
+	printf("%c", s[i]);
 	i++;
 	}
 	printf("\n");
