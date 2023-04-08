@@ -1,1 +1,1 @@
-c static library tasks 
+static library c tasks 
