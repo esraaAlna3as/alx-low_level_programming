@@ -3,6 +3,19 @@
 #include <stdlib.h>
 #define UNUSED(x) (void)(x)
 /**
+* _isdigit -  function that checks for a digit (0 through 9).
+* @c : character to check
+* Return: 1 if digit 0 if not
+*/
+
+int _isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	return (1);
+	else
+	return (0);
+}
+/**
  * StrCheck - checks string
  * @s: string to check
  * Return: 1 or 0
@@ -21,19 +34,7 @@ int StrCheck(char *s)
 	}
 	return (1);
 }
-/**
-* _isdigit -  function that checks for a digit (0 through 9).
-* @c : character to check
-* Return: 1 if digit 0 if not
-*/
 
-int _isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-	return (1);
-	else
-	return (0);
-}
 /**
  * main - main function
  * @argc: argumentc
