@@ -3,6 +3,25 @@
 #include <stdlib.h>
 #define UNUSED(x) (void)(x)
 /**
+ * StrCheck - checks string
+ * @s: string to check
+ * Return: 1 or 0
+ */
+int StrCheck(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+	{
+		if (!_isdigit(s[i]))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+/**
 * _isdigit -  function that checks for a digit (0 through 9).
 * @c : character to check
 * Return: 1 if digit 0 if not
@@ -32,12 +51,15 @@ int main(int argc, char  *argv[])
 	}
 	for (i = 1 ; i < argc ; i++)
 	{
-		if (!(_isdigit(atoi(argv[i]))))
+		if (StrCheck(argv[i]))
+		{
+		sum = sum + atoi(argv[i]);
+		}
+		else
 		{
 		printf("Error\n");
 		return (1);
 		}
-		sum = sum + atoi(argv[i]);
 	}
 		printf("%d\n", sum);
 		return (0);
