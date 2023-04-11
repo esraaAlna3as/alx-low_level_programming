@@ -3,11 +3,10 @@
 #include "main.h"
 /**
  * main - Entry point
- *@argc:int  number of arguments
- *@argv: the change
+ * @argc:int  number of arguments
+ * @argv: the change
  * Return: 0 (Success) 1 (Error)
  */
-
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -35,8 +34,6 @@ int main(int argc, char *argv[])
 	count++;
 	}
 	}
-
 	printf("%d\n", count);
 	return (0);
 }
-
