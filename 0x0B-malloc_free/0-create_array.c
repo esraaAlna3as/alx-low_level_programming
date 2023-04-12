@@ -2,19 +2,22 @@
 
 char *create_array(unsigned int size, char c)
 {
-	if (size == 0)
+	char *arr;
+	unsigned int i;
+    
+	if (size == 0) 
 	{
+		return (NULL);
+	}
+    
+	arr = malloc(size * sizeof(char));
+	if (arr == NULL) {
 	return (NULL);
 	}
-	char *arr = malloc(size * sizeof(char));
-
-	if (arr == NULL)
+    
+	for (i = 0; i < size; i++) 
 	{
-	return (NULL);
-	}
-	for (unsigned int i = 0; i < size; i++)
-	{
-	arr[i] = c;
+		arr[i] = c;
 	}
 	return (arr);
 }
