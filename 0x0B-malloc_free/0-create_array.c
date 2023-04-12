@@ -1,4 +1,10 @@
 #include <stdlib.h>
+/**
+ * create_array -  creates an array of chars
+ * @size: The size of the array
+ * @c: the character to  initializes
+ * Return: On success arr , null if size 0 or fails.
+ */
 
 char *create_array(unsigned int size, char c)
 {
