@@ -9,40 +9,22 @@
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list args;
-	int i = 0;
-	char *s;
-	char c;
+	unsigned int i;
+	va_list stringArgs;
+	char *strArg;
 
-	va_start(args, format);
-	while (format && format[i])
+	va_start(stringArgs, n);
+	for (i = 0; i < n; i++)
 	{
-	switch (format[i])
-	{
-		case 'c':
-			c = (char)va_arg(args, int);
-			printf("%c", c);
-		break;
-		case 'i':
-			printf("%d", va_arg(args, int));
-		break;
-		case 'f':
-			printf("%f", (float)va_arg(args, double));
-		break;
-		case 's':
-			s = va_arg(args, char *);
-			if (s == NULL)
-				printf("(nil)");
-			else
-			printf("%s", s);
-		break;
-		default:
-		break;
+		strArg = va_arg(stringArgs, char *);
+
+		if (separator != NULL && i > 0)
+			printf("%s", separator);
+		if (strArg == NULL)
+			printf("(nil)");
+		else
+			printf("%s", strArg);
 	}
-		if (format[i + 1])
-		printf(", ");
-		i++;
-	}
-va_end(args);
-printf("\n");
+	va_end(stringArgs);
+	printf("\n");
 }
