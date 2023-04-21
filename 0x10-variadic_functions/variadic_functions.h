@@ -18,6 +18,6 @@ void print_s(va_list a);
 typedef struct op
 {
 	char *c;
-	int (*f)(va_list a);
+	int (*f)(va_list);
 } printer;
 #endif
