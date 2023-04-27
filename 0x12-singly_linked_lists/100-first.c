@@ -1,11 +1,11 @@
 #include<stdio.h>
-void before_main(void) __attribute__((constructor));
+void first(void) __attribute__((constructor));
 /**
- * before_main - print before the main function is executed.
+ * first - print before the main function is executed.
  *
  * Return: void.
  */
-void before_main(void)
+void first(void)
 {
 printf("You're beat! and yet, you must allow,\n
 I bore my house upon my back!\n");
