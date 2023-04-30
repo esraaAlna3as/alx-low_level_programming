@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-
 /**
  * print_listint - Prints all the elements of a list_t list.
  * @h: Pointer to the head of the list.
