@@ -4,8 +4,8 @@
 #include "lists.h"
 /**
  * add_node - adds a new node
- * @head: head address i think
- * @str: string to put through
+ * @head:pointer to a pointer to a list_t
+ * @str: string to add to the list
  * Return: returns an address of new node
  */
 list_t *add_node(list_t **head, const char *str)
