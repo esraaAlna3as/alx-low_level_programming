@@ -16,8 +16,9 @@ listint_t *t;
 	while (*head != NULL)
 	{
 		t = *head;
-		*head = t->next;
 		free(*head);
+		*head = t->next;
+		
 	}
 *head = NULL;
 }
