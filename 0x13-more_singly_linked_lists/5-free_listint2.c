@@ -3,21 +3,21 @@
 #include "lists.h"
 /**
  *free_listint2- free the list set to null
- *@head: head of the list
+ *@head: pointer to a pointer to the list
  *Returns : void
  **/
-void free_listint2(listint_t *head)
+void free_listint2(listint_t **head)
 {
 listint_t *t;
 
 	if (head == NULL)
 	return;
 
-	while (head != NULL)
+	while (*head != NULL)
 	{
-		t = head;
-		head = head->next;
-		free(t);
+		t = *head;
+		*head = t->next;
+		free(*head);
 	}
 *head = NULL;
 }
