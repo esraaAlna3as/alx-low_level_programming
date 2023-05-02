@@ -27,12 +27,12 @@ size_t print_listint_safe(const listint_t *head)
 
 	visited_nodes[visited_count++] = head;
 	printf("[%p] %d\n", (void *)head, head->n);
-	
+
 	if (head->next == NULL)
 	{
 	visited_count--;
 	return (visited_count + 1);
-	 }
+	}
 	count = print_listint_safe(head->next);
 	visited_count--;
 
