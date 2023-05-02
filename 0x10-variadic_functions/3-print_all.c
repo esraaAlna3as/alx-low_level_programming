@@ -3,87 +3,58 @@
 #include "variadic_functions.h"
 
 /**
- * print_c - prints char
- * @args: argument list
- */
-void print_c(va_list args)
-{
-	printf("%c", va_arg(args, int));
-}
-
-/**
- * print_i - prints int
- * @args: argument list
- */
-void print_i(va_list args)
-{
-	printf("%d", va_arg(args, int));
-}
-
-/**
- * print_f - prints float
- * @args: argument list
- */
-void print_f(va_list args)
-{
-	printf("%f", va_arg(args, double));
-}
-
-/**
- * print_s - prints string
- * @args: argument list
- */
-void print_s(va_list args)
-{
-	char *s;
-
-	s = va_arg(args, char *);
-	if (s == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", s);
-}
-
-/**
  * print_all - prints anything
- * @format: format string that specifies the types of the argument list
+ * @format: a list of types of arguments passed to the function
+ * c: char
+ * i: integer
+ * f: float
+ * s: char * (if the string is NULL, print (nil) instead
+ * any other char should be ignored
+ *
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	unsigned int i, j;
-	char *sep = "";
-	printer ops[] = {
-		{"c", print_c},
-		{"i", print_i},
-		{"f", print_f},
-		{"s", print_s},
-		{NULL, NULL}
-	};
+	unsigned int i = 0, j;
+	char *str;
+
+	const char formats[] = "cifs";
 
 	va_start(args, format);
 
-	i = 0;
-	while (format != NULL && format[i])
+	while (format && format[i])
 	{
 		j = 0;
-		while (ops[j].type != NULL)
+		while (formats[j])
 		{
-			if (*(ops[j].type) == format[i])
+			if (format[i] == formats[j] && j != 3)
 			{
-				printf("%s", sep);
-				ops[j].f(args);
-				sep = ", ";
-				break;
+				switch (format[i])
+				{
+					case 'c':
+						printf("%c", va_arg(args, int));
+						break;
+					case 'i':
+						printf("%d", va_arg(args, int));
+						break;
+					case 'f':
+						printf("%f", va_arg(args, double));
+						break;
+					case 's':
+						str = va_arg(args, char *);
+						if (str == NULL)
+							str = "(nil)";
+						printf("%s", str);
+						break;
+				}
+				if (format[i + 1] != '\0')
+					printf(", ");
 			}
 			j++;
 		}
 		i++;
 	}
-
 	printf("\n");
-
 	va_end(args);
 }
