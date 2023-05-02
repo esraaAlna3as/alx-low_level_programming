@@ -20,40 +20,38 @@ void print_all(const char * const format, ...)
 	char *str;
 
 	const char formats[] = "cifs";
-
 	va_start(args, format);
-
 	while (format && format[i])
 	{
-		j = 0;
-		while (formats[j])
+	j = 0;
+	while (formats[j])
+	{
+		if (format[i] == formats[j] && j != 3)
 		{
-			if (format[i] == formats[j] && j != 3)
+			switch (format[i])
 			{
-				switch (format[i])
-				{
-					case 'c':
-						printf("%c", va_arg(args, int));
-						break;
-					case 'i':
-						printf("%d", va_arg(args, int));
-						break;
-					case 'f':
-						printf("%f", va_arg(args, double));
-						break;
-					case 's':
-						str = va_arg(args, char *);
-						if (str == NULL)
-							str = "(nil)";
-						printf("%s", str);
-						break;
-				}
-				if (format[i + 1] != '\0')
-					printf(", ");
-			}
-			j++;
+			case 'c':
+			printf("%c", va_arg(args, int));
+			break;
+			case 'i':
+			printf("%d", va_arg(args, int));
+			break;
+			case 'f':
+			printf("%f", va_arg(args, double));
+			break;
+			case 's':
+			str = va_arg(args, char *);
+			if (str == NULL)
+			str = "(nil)";
+			printf("%s", str);
+			break;
 		}
-		i++;
+		if (format[i + 1] != '\0')
+		printf(", ");
+	}
+	j++;
+	}
+	i++;
 	}
 	printf("\n");
 	va_end(args);
