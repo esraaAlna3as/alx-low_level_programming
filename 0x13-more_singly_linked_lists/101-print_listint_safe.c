@@ -10,26 +10,31 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	static const listint_t *visited_nodes[1024];
-	static size_t visited_count;
-	size_t i, count;
-
-	if (head == NULL)
-	return (0);
-
-	for (i = 0; i < visited_count; i++)
+	static int first_time = 1;
+	size_t visited_count = 0;
+	
+	if (first_time && head)
 	{
-	if (head == visited_nodes[i])
+	visited_nodes[visited_count++] = head;
+	first_time = 0;
+	}
+
+	while (head && visited_count < 1024)
 	{
+	printf("[%p] %d\n", (void *)head, head->n);
+	head = head->next;
+
+	for (size_t i = 0; i < visited_count; i++)
+	{
+		if (head == visited_nodes[i])
+		{
 		printf("-> [%p] %d\n", (void *)head, head->n);
-		return (visited_count);
-	}
-	}
+		return visited_count;
+		}
+ 	}
 
 	visited_nodes[visited_count++] = head;
-	printf("[%p] %d\n", (void *)head, head->n);
+	}
 
-	count = print_listint_safe(head->next);
-	visited_count--;
-
-	return (count + 1);
+	return (visited_count);
 }
