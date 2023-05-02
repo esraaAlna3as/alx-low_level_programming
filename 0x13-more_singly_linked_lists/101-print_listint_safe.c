@@ -10,7 +10,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	static const listint_t *visited_nodes[1024];
-	size_t visited_count = 0;
+	static size_t visited_count;
 
 	if (head == NULL)
 	return (0);
