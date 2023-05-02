@@ -34,7 +34,9 @@ size_t print_listint_safe(const listint_t *head)
 	return (visited_count + 1);
 	}
 	count = print_listint_safe(head->next);
+	if (count == 1)
+	{
 	visited_count--;
-
+	}
 	return (count + 1);
 }
