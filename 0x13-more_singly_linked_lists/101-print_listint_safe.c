@@ -12,7 +12,7 @@ size_t print_listint_safe(const listint_t *head)
 	static const listint_t *visited_nodes[1024];
 	static int first_time = 1;
 	size_t visited_count = 0;
-	
+
 	if (first_time && head)
 	{
 	visited_nodes[visited_count++] = head;
@@ -29,9 +29,9 @@ size_t print_listint_safe(const listint_t *head)
 		if (head == visited_nodes[i])
 		{
 		printf("-> [%p] %d\n", (void *)head, head->n);
-		return visited_count;
+		return (visited_count);
 		}
- 	}
+	}
 
 	visited_nodes[visited_count++] = head;
 	}
