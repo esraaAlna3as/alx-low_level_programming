@@ -18,8 +18,8 @@ void print_all(const char * const format, ...)
 	va_list args;
 	unsigned int i = 0, j;
 	char *str;
-
 	const char formats[] = "cifs";
+	
 	va_start(args, format);
 	while (format && format[i])
 	{
