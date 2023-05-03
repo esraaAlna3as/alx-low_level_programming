@@ -3,6 +3,47 @@
 #include "variadic_functions.h"
 
 /**
+ * print_c - Prints a char argument.
+ * @a: A va_list containing the char to print.
+ */
+void print_c(va_list a)
+{
+	printf("%c", va_arg(a, int));
+}
+
+/**
+ * print_i - Prints an int argument.
+ * @a: A va_list containing the int to print.
+ */
+void print_i(va_list a)
+{
+	printf("%d", va_arg(a, int));
+}
+
+/**
+ * print_f - Prints a float argument.
+ * @a: A va_list containing the float to print.
+ */
+void print_f(va_list a)
+{
+	printf("%f", va_arg(a, double));
+}
+
+/**
+ * print_s - Prints a string argument.
+ * @a: A va_list containing the string to print.
+ */
+void print_s(va_list a)
+{
+	char *str = va_arg(a, char *);
+
+	if (str == NULL)
+		str = "(nil)";
+
+	printf("%s", str);
+}
+
+/**
  * print_all - prints anything
  * @format: a list of types of arguments passed to the function
  * c: char
@@ -26,24 +67,21 @@ void print_all(const char * const format, ...)
 	j = 0;
 	while (formats[j])
 	{
-		if (format[i] == formats[j] && j != 3)
+		if (format[i] == formats[j])
 		{
 			switch (format[i])
 			{
 			case 'c':
-			printf("%c", va_arg(args, int));
+			print_c(args);
 			break;
 			case 'i':
-			printf("%d", va_arg(args, int));
+			print_i(args);
 			break;
 			case 'f':
-			printf("%f", va_arg(args, double));
+			print_f(args);
 			break;
 			case 's':
-			str = va_arg(args, char *);
-			if (str == NULL)
-			str = "(nil)";
-			printf("%s", str);
+			print_s(args);
 			break;
 		}
 		if (format[i + 1] != '\0')
